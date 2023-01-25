@@ -43,33 +43,35 @@ if (!empty($_POST)) {
     <title>ログインページ</title>
 </head>
 <body>
-    <div id="lead">
-        <p>メールアドレスとパスワードを記入してログインしてください。</p>
-        <p>入会手続きがまだの方はこちらからどうぞ。</p>
-        <p>&raquo;<a href="join/signup.php">入会手続きをする</a></p>
+    <div class="login">
+        <div id="lead">
+            <p>メールアドレスとパスワードを記入してログインしてください。</p>
+            <p>入会手続きがまだの方はこちらからどうぞ。</p>
+            <p>&raquo;<a href="join/signup.php">入会手続きをする</a></p>
+        </div>
+        <form action="" method="post" class="login-form">
+            <dl>
+                <dt>メールアドレス</dt>
+                <dd>
+                    <input type="text" name="email" size="35" maxlength="255" value="<?php echo htmlspecialchars(filter_input(INPUT_POST, 'email'), ENT_QUOTES)?>" />
+                    <?php if (isset($error['login']) && $error['login'] == 'blank') :?>
+                        <p class="error">※メールアドレスとパスワードをご記入ください</p>
+                    <?php endif ?>
+                    <?php if (isset($error['login']) && $error['login'] == 'failed') :?>
+                        <p class="error">※ログインに失敗しました。正しくご記入ください。</p>
+                    <?php endif ?>
+                </dd>
+                <dt>パスワード</dt>
+                <dd>
+                    <input type="password" name="password" size="35" maxlength="255" value="<?php echo htmlspecialchars(filter_input(INPUT_POST, 'password'), ENT_QUOTES) ?>" />
+                </dd>
+                <dt>ログイン情報の記録</dt>
+                <dd>
+                    <input id="save" type="checkbox" name="save" value="on"><label for="save">次回からは自動的にログインする</label>
+                </dd>
+            </dl>
+            <div class="btn login"><input type="submit" value="ログインする" /></div>
+        </form>
     </div>
-    <form action="" method="post">
-        <dl>
-            <dt>メールアドレス</dt>
-            <dd>
-                <input type="text" name="email" size="35" maxlength="255" value="<?php echo htmlspecialchars(filter_input(INPUT_POST, 'email'), ENT_QUOTES)?>" />
-                <?php if (isset($error['login']) && $error['login'] == 'blank') :?>
-                    <p class="error">※メールアドレスとパスワードをご記入ください</p>
-                <?php endif ?>
-                <?php if (isset($error['login']) && $error['login'] == 'failed') :?>
-                    <p class="error">※ログインに失敗しました。正しくご記入ください。</p>
-                <?php endif ?>
-            </dd>
-            <dt>パスワード</dt>
-            <dd>
-                <input type="password" name="password" size="35" maxlength="255" value="<?php echo htmlspecialchars(filter_input(INPUT_POST, 'password'), ENT_QUOTES) ?>" />
-            </dd>
-            <dt>ログイン情報の記録</dt>
-            <dd>
-                <input id="save" type="checkbox" name="save" value="on"><label for="save">次回からは自動的にログインする</label>
-            </dd>
-        </dl>
-        <div><input type="submit" value="ログインする" /></div>
-    </form>
 </body>
 </html>
