@@ -17,7 +17,6 @@ if ($maxPage == 0) {
 $page = min($page, $maxPage);
 $start = ($page - 1) * 5;
 
-
 // ログイン中かどうかの確認
 if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     $_SESSION['time'] = time();
