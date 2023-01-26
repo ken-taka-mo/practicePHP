@@ -17,6 +17,16 @@ if ($maxPage == 0) {
 $page = min($page, $maxPage);
 $start = ($page - 1) * 5;
 
+if (isset($_GET['page'])) {
+    if ($_GET['page'] < 1) {
+        header('Location: index.php?page=1');
+        exit();
+    } elseif ($_GET['page'] > $maxPage) {
+        header("Location: index.php?page={$maxPage}");
+        exit();
+    }
+}
+
 // ログイン中かどうかの確認
 if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     $_SESSION['time'] = time();
@@ -97,7 +107,7 @@ function makelink($value)
             <div class="msg">
                 <img src="member_picture/<?php echo h($post["picture"]) ?>" alt="<?php echo h($post["name"]) ?>" width="48" height="48" >
 
-                <p><?php echo makeLink(h($post["message"])) ?><span class="name">（<?php echo h($post["name"]) ?>）</span>[<a href="index.php?res=<?php echo h($post['id']) ?>">Re</a>]</p>
+                <p><?php echo makeLink(h($post["message"])) ?><span class="name">（<?php echo h($post["name"]) ?>）</span>[<a href="index.php?res=<?php echo h($post['id']) ?>&page=<?php echo h($page) ?>">Re</a>]</p>
                 <p class="day">
                     <a href="view.php?id=<?php echo h($post['id'])?>"><?php echo h($post["created"]) ?></a>
                     <?php if ($post['reply_post_id'] > 0) :?>
