@@ -1,0 +1,93 @@
+.error {
+    color: red;
+}
+
+.message textarea {
+    font-size: 40px;
+}
+
+dd, dt {
+    margin: 0;
+}
+
+/* signup.php */
+.signup {
+    text-align: center;
+}
+
+.signup form {
+    background-color: #00d0ff33;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.signup dt {
+    padding-top: 15px;
+    margin: 0 auto;
+    width: 40%;
+    text-align: left;
+}
+
+.signup span {
+    color: white;
+    background-color: red;
+    margin-left: 10px;
+    padding: 0 10px;
+}
+
+.signup input {
+    font-size: 20px;
+    width: 40%;
+}
+
+.signup .submit {
+    width: 20%;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+/* login.php */
+
+.login {
+    text-align: center;
+}
+
+.login-forms {
+    background-color: aquamarine;
+    width: 30%;
+    margin: 0 auto;
+    height: 500px;
+    border-radius: 40px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+
+.form {
+    height: 30%;
+}
+
+
+.text-title {
+    padding-top: 30px;
+    width: 90%;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.login-forms .text {
+    font-size: 13px;
+    width: 90%;
+}
+
+.btn-login input {
+    margin-top: 50px;
+    padding: 10px 40px;
+    border-radius: 6px;
+    border-color: #fff42d;
+    background-color: #fff42d;
+    color: black;
+    font-size: 20px;
+    font-weight:bold;
+}
