@@ -133,5 +133,6 @@ function makelink($value)
             <?php endif ?>
         </ul>
     </div>
+    <p>試し</p>
 </body>
 </html>
